@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dh70vsfvmvvvl"]
+
+[ext_resource type="Texture2D" uid="uid://bvb3qqxh5vrs7" path="res://textures/clouds/FX_CloudAlpha01.png" id="1_emde2"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_24ipe"]
+emission_shape_scale = Vector3(7, 3, 5)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xl2ry"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("1_emde2")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_et32l"]
+material = SubResource("StandardMaterial3D_xl2ry")
+size = Vector2(50, 50)
+
+[node name="cloud" type="GPUParticles3D"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+amount = 10
+lifetime = 600.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_24ipe")
+draw_pass_1 = SubResource("QuadMesh_et32l")

@@ -1,0 +1,317 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfvlpi08vv0aj"]
+
+[ext_resource type="PackedScene" uid="uid://qymnknevclhm" path="res://models/arachne.glb" id="1_be3wx"]
+[ext_resource type="Script" path="res://arachne.gd" id="2_x8jpj"]
+[ext_resource type="Script" path="res://start_ik.gd" id="3_bb7o1"]
+[ext_resource type="Script" path="res://ik_Target.gd" id="4_uy3ia"]
+[ext_resource type="Script" path="res://stepTargetContainer.gd" id="5_jw6bq"]
+[ext_resource type="Script" path="res://step_ray.gd" id="5_qq7dc"]
+
+[node name="World" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+use_collision = true
+size = Vector3(100, 1, 100)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0)
+size = Vector3(100, 1, 100)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 50, 50)
+size = Vector3(100, 1, 100)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 50, -50)
+size = Vector3(100, 1, 100)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 50, 50, 0)
+size = Vector3(100, 1, 100)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, -50, 50, 0)
+size = Vector3(100, 1, 100)
+
+[node name="arachne" parent="." instance=ExtResource("1_be3wx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.27547, 0)
+script = ExtResource("2_x8jpj")
+
+[node name="Skeleton3D" parent="arachne/characterController/Armature" index="0"]
+bones/0/rotation = Quaternion(-1.17882e-07, 1.27312e-07, 0.613046, 0.790047)
+bones/0/scale = Vector3(1, 1, 1)
+bones/1/rotation = Quaternion(-0.250355, -0.010157, -0.263006, 0.931691)
+bones/2/rotation = Quaternion(-0.638792, 0.0324688, 0.559743, 0.526858)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/rotation = Quaternion(-0.647943, 0, -0.169476, 0.742596)
+bones/3/scale = Vector3(1, 1, 1)
+bones/5/rotation = Quaternion(-7.0833e-08, 3.24193e-08, 0.0438168, 0.99904)
+bones/6/rotation = Quaternion(1.34024e-07, 1.01804e-07, -0.0247406, 0.999694)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(-1.46195e-07, 3.93995e-08, -0.00625877, 0.99998)
+bones/8/rotation = Quaternion(0.869338, 0.0347022, -0.462143, -0.171673)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/rotation = Quaternion(-0.0039097, 0.000836384, 0.00308236, 0.999987)
+bones/9/scale = Vector3(1, 1, 1)
+bones/10/rotation = Quaternion(0.00626081, -0.00938704, -0.109807, 0.993889)
+bones/11/rotation = Quaternion(0.0106223, -0.0046341, 0.101253, 0.994793)
+bones/11/scale = Vector3(1, 1, 1)
+bones/12/rotation = Quaternion(-0.0476223, 0.00196522, 0.0301551, 0.998408)
+bones/12/scale = Vector3(1, 1, 1)
+bones/13/rotation = Quaternion(0.0106955, 0.000890096, 0.0761388, 0.997039)
+bones/14/rotation = Quaternion(-0.0208319, 0.0142788, 0.07425, 0.99692)
+bones/15/rotation = Quaternion(-0.00554577, -0.00206062, 0.128607, 0.991678)
+bones/16/rotation = Quaternion(-0.0158057, 0.000559656, 0.0296029, 0.999437)
+bones/17/rotation = Quaternion(-0.413994, -0.0723728, 0.283454, 0.861989)
+bones/18/rotation = Quaternion(0.228391, 0.0134956, -0.118057, 0.966291)
+bones/19/rotation = Quaternion(0.869338, 0.0347022, 0.462143, 0.171673)
+bones/19/scale = Vector3(1, 1, 1)
+bones/20/rotation = Quaternion(0.00390988, -0.000836411, 0.0030825, 0.999987)
+bones/21/rotation = Quaternion(-0.00626121, 0.00938704, -0.109808, 0.993889)
+bones/22/rotation = Quaternion(-0.010622, 0.00463414, 0.101254, 0.994793)
+bones/22/scale = Vector3(1, 1, 1)
+bones/23/rotation = Quaternion(0.0476219, -0.00196521, 0.0301545, 0.998408)
+bones/23/scale = Vector3(1, 1, 1)
+bones/24/rotation = Quaternion(-0.0106949, -0.000890003, 0.0761398, 0.997039)
+bones/24/scale = Vector3(1, 1, 1)
+bones/25/rotation = Quaternion(0.0208314, -0.0142788, 0.0742495, 0.99692)
+bones/25/scale = Vector3(1, 1, 1)
+bones/26/rotation = Quaternion(0.00554639, 0.00206084, 0.128608, 0.991678)
+bones/26/scale = Vector3(1, 1, 1)
+bones/27/rotation = Quaternion(0.0158053, -0.000559802, 0.0296023, 0.999437)
+bones/27/scale = Vector3(1, 1, 1)
+bones/28/rotation = Quaternion(0.413994, 0.0723729, 0.283454, 0.861989)
+bones/29/rotation = Quaternion(-0.228392, -0.0134956, -0.118058, 0.966291)
+bones/30/rotation = Quaternion(-0.371548, 0.0136563, -0.314796, 0.873309)
+bones/31/rotation = Quaternion(-0.64745, -0.0650511, 0.524442, 0.549124)
+bones/31/scale = Vector3(1, 1, 1)
+bones/32/rotation = Quaternion(-0.566459, -2.86814e-08, -0.267951, 0.779311)
+bones/33/rotation = Quaternion(-0.542309, 0.0252165, -0.425669, 0.723927)
+bones/34/rotation = Quaternion(-0.807076, -0.0280354, 0.0122702, 0.589654)
+bones/34/scale = Vector3(1, 1, 1)
+bones/35/rotation = Quaternion(0.134826, 1.42457e-07, -0.43739, 0.889108)
+bones/35/scale = Vector3(1, 1, 1)
+bones/36/rotation = Quaternion(-0.558349, -0.17026, -0.599746, 0.547323)
+bones/37/rotation = Quaternion(-0.818124, -0.0156144, -0.178777, 0.546322)
+bones/37/scale = Vector3(1, 1, 1)
+bones/38/rotation = Quaternion(0.495362, -1.51127e-08, -0.101381, 0.86275)
+bones/38/scale = Vector3(1, 1, 1)
+bones/39/rotation = Quaternion(0.250355, 0.0101567, -0.263006, 0.931691)
+bones/40/rotation = Quaternion(0.638792, -0.0324688, 0.559743, 0.526858)
+bones/40/scale = Vector3(1, 1, 1)
+bones/41/rotation = Quaternion(0.647943, 1.50497e-08, -0.169476, 0.742596)
+bones/41/scale = Vector3(1, 1, 1)
+bones/42/rotation = Quaternion(0.371548, -0.0136567, -0.314796, 0.873309)
+bones/42/scale = Vector3(1, 1, 1)
+bones/43/rotation = Quaternion(0.64745, 0.0650513, 0.524442, 0.549124)
+bones/43/scale = Vector3(1, 1, 1)
+bones/44/rotation = Quaternion(0.566459, -6.69233e-08, -0.267951, 0.779311)
+bones/44/scale = Vector3(1, 1, 1)
+bones/46/rotation = Quaternion(0.807076, 0.0280354, 0.0122703, 0.589654)
+bones/47/rotation = Quaternion(-0.134826, -4.60891e-08, -0.43739, 0.889108)
+bones/47/scale = Vector3(1, 1, 1)
+bones/48/rotation = Quaternion(0.558349, 0.17026, -0.599746, 0.547324)
+bones/48/scale = Vector3(1, 1, 1)
+bones/49/rotation = Quaternion(0.818124, 0.0156144, -0.178777, 0.546322)
+bones/49/scale = Vector3(1, 1, 1)
+bones/50/rotation = Quaternion(-0.495362, -1.51127e-08, -0.101381, 0.86275)
+bones/50/scale = Vector3(1, 1, 1)
+
+[node name="frontLeftLeg" type="SkeletonIK3D" parent="arachne/characterController" index="4"]
+process_priority = 1
+root_bone = &"frontUpperLeg_L"
+tip_bone = &"frontLegTip_L"
+magnet = Vector3(0, 10, 0)
+target_node = NodePath("../frontLeftIKTarget")
+script = ExtResource("3_bb7o1")
+
+[node name="secondLeftLeg" type="SkeletonIK3D" parent="arachne/characterController" index="5"]
+process_priority = 1
+root_bone = &"secondUpperLeg_L"
+tip_bone = &"secondLegTip_L"
+magnet = Vector3(0, 10, 0)
+target_node = NodePath("../secondLeftIKTarget")
+script = ExtResource("3_bb7o1")
+
+[node name="thirdLeftLeg" type="SkeletonIK3D" parent="arachne/characterController" index="6"]
+process_priority = 1
+root_bone = &"thirdUpperLeg_L"
+tip_bone = &"thirdLegTip_L"
+magnet = Vector3(0, 10, 0)
+target_node = NodePath("../thirdLeftIKTarget")
+script = ExtResource("3_bb7o1")
+
+[node name="backLeftLeg" type="SkeletonIK3D" parent="arachne/characterController" index="7"]
+process_priority = 1
+root_bone = &"backUpperLeg_L"
+tip_bone = &"backLegTip_L"
+magnet = Vector3(0, 10, 0)
+target_node = NodePath("../backLeftIKTarget")
+script = ExtResource("3_bb7o1")
+
+[node name="frontRightLeg" type="SkeletonIK3D" parent="arachne/characterController" index="8"]
+process_priority = 1
+root_bone = &"frontUpperLeg_R"
+tip_bone = &"frontLegTip_R"
+magnet = Vector3(0, 10, 0)
+target_node = NodePath("../frontRightIKTarget")
+script = ExtResource("3_bb7o1")
+
+[node name="secondRightLeg" type="SkeletonIK3D" parent="arachne/characterController" index="9"]
+process_priority = 1
+root_bone = &"secondUpperLeg_R"
+tip_bone = &"secondLegTip_R"
+magnet = Vector3(0, 10, 0)
+target_node = NodePath("../secondRightIKTarget")
+script = ExtResource("3_bb7o1")
+
+[node name="thirdRightLeg" type="SkeletonIK3D" parent="arachne/characterController" index="10"]
+process_priority = 1
+root_bone = &"thirdUpperLeg_R"
+tip_bone = &"thirdLegTip_R"
+magnet = Vector3(0, 10, 0)
+target_node = NodePath("../thirdRightIKTarget")
+script = ExtResource("3_bb7o1")
+
+[node name="backRightLeg" type="SkeletonIK3D" parent="arachne/characterController" index="11"]
+process_priority = 1
+root_bone = &"backUpperLeg_R"
+tip_bone = &"backLegTip_R"
+magnet = Vector3(0, 10, 0)
+target_node = NodePath("../backRightIKTarget")
+script = ExtResource("3_bb7o1")
+
+[node name="frontLeftIKTarget" type="Marker3D" parent="arachne/characterController" index="12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.8803, 0, -7.62242)
+top_level = true
+script = ExtResource("4_uy3ia")
+step_distance = 14.0
+
+[node name="secondLeftIKTarget" type="Marker3D" parent="arachne/characterController" index="13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.286, 0, -15.2618)
+top_level = true
+script = ExtResource("4_uy3ia")
+step_distance = 14.0
+
+[node name="thirdLeftIKTarget" type="Marker3D" parent="arachne/characterController" index="14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.63368, 0, -19.3779)
+top_level = true
+script = ExtResource("4_uy3ia")
+step_distance = 14.0
+
+[node name="backLeftIKTarget" type="Marker3D" parent="arachne/characterController" index="15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4931, 0, -20.1627)
+top_level = true
+script = ExtResource("4_uy3ia")
+step_distance = 14.0
+
+[node name="frontRightIKTarget" type="Marker3D" parent="arachne/characterController" index="16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.88, 0, 7.622)
+top_level = true
+script = ExtResource("4_uy3ia")
+step_distance = 14.0
+
+[node name="secondRightIKTarget" type="Marker3D" parent="arachne/characterController" index="17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.286, 0, 15.262)
+top_level = true
+script = ExtResource("4_uy3ia")
+step_distance = 14.0
+
+[node name="thirdRightIKTarget" type="Marker3D" parent="arachne/characterController" index="18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.634, 0, 19.378)
+top_level = true
+script = ExtResource("4_uy3ia")
+step_distance = 14.0
+
+[node name="backRightIKTarget" type="Marker3D" parent="arachne/characterController" index="19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.493, 0, 20.163)
+top_level = true
+script = ExtResource("4_uy3ia")
+step_distance = 14.0
+
+[node name="stepTargetContainer" type="Node3D" parent="arachne/characterController" index="20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1, 0)
+script = ExtResource("5_jw6bq")
+
+[node name="frontLeftRay" type="RayCast3D" parent="arachne/characterController/stepTargetContainer" node_paths=PackedStringArray("step_target")]
+transform = Transform3D(0.939228, -0.165611, 0.300706, 0.173648, 0.984808, 0, -0.296137, 0.052217, 0.953717, 20.5403, 20, -6.57242)
+target_position = Vector3(0, -50, 0)
+script = ExtResource("5_qq7dc")
+step_target = NodePath("frontLeftStepTarget")
+
+[node name="frontLeftStepTarget" type="Marker3D" parent="arachne/characterController/stepTargetContainer/frontLeftRay"]
+transform = Transform3D(0.939228, 0.173648, -0.296137, -0.165611, 0.984808, 0.052217, 0.300706, -3.72529e-09, 0.953717, -0.0249996, -20.3041, 0.00295448)
+
+[node name="secondLeftRay" type="RayCast3D" parent="arachne/characterController/stepTargetContainer" node_paths=PackedStringArray("step_target")]
+transform = Transform3D(0.564862, -0.0996005, 0.819152, 0.173648, 0.984807, 0, -0.806707, 0.142244, 0.573576, 10.286, 20, -12.4018)
+target_position = Vector3(0, -50, 0)
+script = ExtResource("5_qq7dc")
+step_target = NodePath("secondLeftStepTarget")
+
+[node name="secondLeftStepTarget" type="Marker3D" parent="arachne/characterController/stepTargetContainer/secondLeftRay"]
+transform = Transform3D(0.564863, 0.173648, -0.806707, -0.0996005, 0.984808, 0.142244, 0.819152, -7.45059e-09, 0.573577, -0.0360565, -20.3022, -0.00212479)
+
+[node name="thirdLeftRay" type="RayCast3D" parent="arachne/characterController/stepTargetContainer" node_paths=PackedStringArray("step_target")]
+transform = Transform3D(-4.30473e-08, 7.5904e-09, 1, 0.173648, 0.984808, 0, -0.984808, 0.173648, -4.37114e-08, -2.63368, 20, -15.8779)
+target_position = Vector3(0, -50, 0)
+script = ExtResource("5_qq7dc")
+step_target = NodePath("thirdLeftStepTarget")
+
+[node name="thirdLeftStepTarget" type="Marker3D" parent="arachne/characterController/stepTargetContainer/thirdLeftRay"]
+transform = Transform3D(-4.30473e-08, 0.173648, -0.984808, 7.5904e-09, 0.984808, 0.173648, 1, 0, -4.37114e-08, -0.0261364, -20.3039, 2.38419e-07)
+
+[node name="backLeftRay" type="RayCast3D" parent="arachne/characterController/stepTargetContainer" node_paths=PackedStringArray("step_target")]
+transform = Transform3D(-0.806707, 0.142244, 0.573576, 0.173648, 0.984808, 0, -0.564863, 0.0996005, -0.819152, -10.6431, 20, -18.1627)
+target_position = Vector3(0, -50, 0)
+script = ExtResource("5_qq7dc")
+step_target = NodePath("backLeftStepTarget")
+
+[node name="backLeftStepTarget" type="Marker3D" parent="arachne/characterController/stepTargetContainer/backLeftRay"]
+transform = Transform3D(-0.806707, 0.173648, -0.564862, 0.142244, 0.984808, 0.0996005, 0.573577, 0, -0.819152, -0.0441208, -20.3008, 0.00361156)
+
+[node name="frontRightRay" type="RayCast3D" parent="arachne/characterController/stepTargetContainer" node_paths=PackedStringArray("step_target")]
+transform = Transform3D(0.939228, -0.165611, -0.300706, 0.173648, 0.984808, 0, 0.296137, -0.052217, 0.953717, 20.54, 20, 6.572)
+target_position = Vector3(0, -50, 0)
+script = ExtResource("5_qq7dc")
+step_target = NodePath("frontRightStepTarget")
+
+[node name="frontRightStepTarget" type="Marker3D" parent="arachne/characterController/stepTargetContainer/frontRightRay"]
+transform = Transform3D(0.939228, 0.173648, 0.296137, -0.165611, 0.984808, -0.052217, -0.300706, 3.72529e-09, 0.953717, -0.0249996, -20.3041, -0.00295448)
+
+[node name="secondRightRay" type="RayCast3D" parent="arachne/characterController/stepTargetContainer" node_paths=PackedStringArray("step_target")]
+transform = Transform3D(0.564863, -0.0996005, -0.819152, 0.173648, 0.984808, 7.45058e-09, 0.806707, -0.142244, 0.573576, 10.286, 20, 12.402)
+target_position = Vector3(0, -50, 0)
+script = ExtResource("5_qq7dc")
+step_target = NodePath("secondRightStepTarget")
+
+[node name="secondRightStepTarget" type="Marker3D" parent="arachne/characterController/stepTargetContainer/secondRightRay"]
+transform = Transform3D(0.564862, 0.173648, 0.806707, -0.0996005, 0.984808, -0.142244, -0.819152, 0, 0.573576, -0.0360565, -20.3022, 0.00212526)
+
+[node name="thirdRightRay" type="RayCast3D" parent="arachne/characterController/stepTargetContainer" node_paths=PackedStringArray("step_target")]
+transform = Transform3D(-4.30473e-08, 7.5904e-09, -1, 0.173648, 0.984808, 0, 0.984808, -0.173648, -4.37114e-08, -2.634, 20, 15.878)
+target_position = Vector3(0, -50, 0)
+script = ExtResource("5_qq7dc")
+step_target = NodePath("thirdRightStepTarget")
+
+[node name="thirdRightStepTarget" type="Marker3D" parent="arachne/characterController/stepTargetContainer/thirdRightRay"]
+transform = Transform3D(-4.30473e-08, 0.173648, 0.984808, 7.5904e-09, 0.984808, -0.173648, -1, 0, -4.37114e-08, -0.0261364, -20.3039, -2.38419e-07)
+
+[node name="backRightRay" type="RayCast3D" parent="arachne/characterController/stepTargetContainer" node_paths=PackedStringArray("step_target")]
+transform = Transform3D(-0.806707, 0.142244, -0.573576, 0.173648, 0.984808, 0, 0.564863, -0.0996005, -0.819152, -10.643, 20, 18.163)
+target_position = Vector3(0, -50, 0)
+script = ExtResource("5_qq7dc")
+step_target = NodePath("backRightStepTarget")
+
+[node name="backRightStepTarget" type="Marker3D" parent="arachne/characterController/stepTargetContainer/backRightRay"]
+transform = Transform3D(-0.806707, 0.173648, 0.564863, 0.142244, 0.984808, -0.0996005, -0.573576, 0, -0.819152, -0.0441246, -20.3008, -0.00361061)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.998441, 0, 0.0558214, 0, 1, 0, -0.0558214, 0, -0.998441, 16.8391, 10, -81.3495)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 47.5476, 0)
+light_energy = 16.0
+omni_range = 170.407
+
+[editable path="arachne"]
